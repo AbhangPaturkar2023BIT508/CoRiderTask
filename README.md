@@ -1,38 +1,62 @@
-# CoRider Task – Flask + MongoDB CRUD API (Dockerized)
+# Flask MongoDB CRUD REST API (Dockerized)
 
-This project is a simple RESTful CRUD API built using **Flask** and **MongoDB**, designed for the CoRider task submission. It is fully containerized using **Docker** and **Docker Compose**.
+This is a simple Flask application that provides REST API endpoints for performing CRUD operations on a MongoDB database for a `User` resource.
+
+## 🛠 Technologies Used
+
+- Python 3.11
+- Flask
+- PyMongo (MongoDB client for Python)
+- MongoDB
+- Docker & Docker Compose
+
+## 📦 User Resource Schema
+
+Each User document in the database contains the following fields:
+
+- `name` (string)
+- `email` (string)
+- `password` (string)
+
+> Note: `_id` is automatically created by MongoDB as the unique identifier.
 
 ---
 
-## Project Structure
+## 📂 Project Structure
 
-CoRider/
+.
 ├── app.py # Main Flask application
-├── Dockerfile # Flask app container definition
-├── docker-compose.yml # Multi-container setup (Flask + MongoDB)
 ├── requirements.txt # Python dependencies
-└── README.md # This file
+├── Dockerfile # Docker image for Flask app
+├── docker-compose.yml # Docker Compose setup for Flask + MongoDB
+└── README.md # Project documentation
 
-## Requirements
+yaml
+Copy
+Edit
 
-- [Docker](https://www.docker.com/products/docker-desktop)
-- [Docker Compose](https://docs.docker.com/compose/)
-- No need for Python or MongoDB to be installed locally
+---
 
-## Getting Started
+## 🚀 Getting Started
 
 ### 1. Clone the Repository
 
--git clone https://github.com/your-username/corider-task.git
--cd corider-task 2. Build and Start the Containers
--docker-compose up --build
- Flask API will be available at: http://localhost:5000
+```bash
+git clone https://github.com/your-username/flask-mongodb-crud-api.git
+cd flask-mongodb-crud-api
+2. Start the Application with Docker
+bash
+Copy
+Edit
+docker-compose up --build
+Flask app will run on: http://localhost:5000
 
- API Endpoints
-Method Endpoint Description
+MongoDB runs in background on: mongodb://localhost:27017
 
-GET /users Get all users
-GET /users/<id> Get a specific user
-POST /users Create a new user
-PUT /users/<id> Update an existing user
-DELETE /users/<id> Delete a user
+🔗 API Endpoints
+Method	Endpoint	Description
+GET	/users	Get all users
+GET	/users/<id>	Get a specific user by ID
+POST	/users	Create a new user
+PUT	/users/<id>	Update a user by ID
+DELETE	/users/<id>	Delete a user by ID
